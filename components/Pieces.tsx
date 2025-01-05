@@ -25,7 +25,7 @@ const Pieces = ({ PieceKey, pieceStyle = "default" }: PiecesProps) => {
         return null;
     }
 
-    const piecesPath = `/../src/assets/pieces/${pieceStyle}/`;
+    const piecesPath = `/public/pieces/${pieceStyle}/`;
     const pieceImage = getPiece[PieceKey] || null;
 
     return (

@@ -1,5 +1,4 @@
-import React from "react";
-import { useDrag, useDrop } from "react-dnd";
+import { useDrag } from "react-dnd";
 
 interface DNDProps {
     pieceKey: string; // Unique key of the piece (e.g., "wn", "bp")
@@ -12,6 +11,10 @@ interface DNDProps {
     children: React.ReactNode;
 }
 
+type DropResult = {
+    newPosition: [number, number];
+};
+
 const DND: React.FC<DNDProps> = ({ pieceKey, position, onDrop, children }) => {
     const [{ isDragging }, drag] = useDrag(() => ({
         type: "PIECE", // Drag type (matches the drop target)
@@ -20,7 +23,7 @@ const DND: React.FC<DNDProps> = ({ pieceKey, position, onDrop, children }) => {
             isDragging: !!monitor.isDragging(),
         }),
         end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
+            const dropResult = monitor.getDropResult() as DropResult;
             if (dropResult) {
                 onDrop(item.pieceKey, item.position, dropResult["newPosition"]); // Handle drop
             }

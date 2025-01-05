@@ -1,5 +1,3 @@
-import React from "react";
-
 const getPiece = {
     bk: "b-k.svg",
     bq: "b-q.svg",

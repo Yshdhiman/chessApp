@@ -1,4 +1,3 @@
-import React from "react";
 import Pieces, { PieceKey } from "./Pieces";
 import { useDrop } from "react-dnd";
 import DND from "./DND";

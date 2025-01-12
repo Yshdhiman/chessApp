@@ -28,7 +28,7 @@ const DND: React.FC<DNDProps> = ({ pieceKey, position, onDrop, children }) => {
                 onDrop(item.pieceKey, item.position, dropResult["newPosition"]); // Handle drop
             }
         },
-    }));
+    }),[pieceKey, position]);
 
     return (
         <div
@@ -37,6 +37,7 @@ const DND: React.FC<DNDProps> = ({ pieceKey, position, onDrop, children }) => {
                 opacity: isDragging ? 0 : 1,
                 cursor: "grab",
                 scale: isDragging ? 2 : 1,
+                zIndex: 999,
             }}
         >
             {children} {/* Render the piece (e.g., ♘ for a knight) */}

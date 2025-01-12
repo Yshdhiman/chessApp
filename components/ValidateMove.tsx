@@ -35,7 +35,7 @@ const pieceRules: Record<
     },
 };
 const ValidateMove = (PieceKey: string, start: number[], end: number[]) => {
-    const isWhite = PieceKey.startsWith("w");
+    // const isWhite = PieceKey.startsWith("w");
     const pieceType = PieceKey.slice(1);
     // if ((whiteTurn && !isWhite) || (!whiteTurn && isWhite)) {
     //     return false;
